@@ -15,7 +15,14 @@ f <- function(X) {
 }
 
 input.f = list(
-    x=list(min=0,max=1)
+    x1=list(min=0,max=1),
+    x2=list(min=0,max=1),
+    x3=list(min=0,max=1),
+    x4=list(min=0,max=1),
+    x5=list(min=0,max=1),
+    x6=list(min=0,max=1),
+    x7=list(min=0,max=1),
+    x8=list(min=0,max=1)
 )
 output.f = "sobol"
 mu.f = c()
