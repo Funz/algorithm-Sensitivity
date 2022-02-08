@@ -11,7 +11,7 @@ f <- function(X) {
   for (j in 1:8) {
     y <- y * (abs(4 * X[, j] - 2) + a[j]) / (1 + a[j])
   }
-  y
+  matrix(y,nrow=nrow(X))
 }
 
 input.f = list(
