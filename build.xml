@@ -1,6 +1,6 @@
-<project name="algorithm-MyAlgorithm" default="test" basedir=".">
+<project name="algorithm-Sensitivity" default="test" basedir=".">
 
-    <property name="algorithm.name" value="MyAlgorithm" />
+    <property name="algorithm.name" value="Sensitivity" />
     <property name="install.dir" value="${basedir}/FunzR-${algorithm.name}" />
 
     <property name="build_algorithm.xml" location="../funz-profile/build_algorithm.xml" />

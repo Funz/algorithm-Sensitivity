@@ -5,19 +5,26 @@
 # *.f : list of math properties. To be compared with algorithm results
 # [print.f] : method to print/plot the function for information
 
-f = function(X) {
-    matrix(Vectorize(function(x) {((x-.75)/3)^3})(X),ncol=1)
+f <- function(X) {
+  a <- c(0, 1, 4.5, 9, 99, 99, 99, 99)
+  y <- 1
+  for (j in 1:8) {
+    y <- y * (abs(4 * X[, j] - 2) + a[j]) / (1 + a[j])
+  }
+  y
 }
+
 input.f = list(
     x=list(min=0,max=1)
 )
-output.f = "poly3"
-info.f = 0.75
+output.f = "sobol"
+mu.f = c()
 
 test = function(algorithm_file) {
     results = run.algorithm(algorithm_file, options=NULL,fun=list(input=input.f,output=output.f,fun=f))
     library(testthat)
     # Replace following test by something suitable
-    #test_that("poly3 info",{expect_equal(as.numeric(results$info),info.f,tolerance = .0001)})
+    print(results$mu)
+    #test_that("sobol mu",{expect_equal(as.numeric(results$mu),mu.f,tolerance = .0001)})
 }
 
