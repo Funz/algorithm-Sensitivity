@@ -58,3 +58,5 @@ displayResults <- function(algorithm, X, Y) {
         
     return(paste0(html,"<mustar>",jsonlite::toJSON(mu.star),"</mustar>","<sig>",jsonlite::toJSON(sig),"</sig>"))
 }
+
+displayResultsTmp <- function(algorithm, X, Y) {}
