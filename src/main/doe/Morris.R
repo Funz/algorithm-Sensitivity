@@ -52,7 +52,7 @@ displayResults <- function(algorithm, X, Y) {
         else effect[i] = "Linear effect"
         
     html = paste0("<HTML name='sensitivity'>", paste0(collapse = "\n", 
-        sub("<table", replacement = "<table border='1'", capture.output(print(xtable::xtable(cbind(mu, 
+        sub("<table border=1", replacement = "<table border='1'", capture.output(print(xtable::xtable(cbind(mu, 
             mu.star, sig, effect)), type = "html")))), "<br/><img src='", 
         algorithm$files, "'/></HTML>")
         
