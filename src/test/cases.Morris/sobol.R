@@ -25,13 +25,12 @@ input.f = list(
     x8=list(min=0,max=1)
 )
 output.f = "sobol"
-mu.f = c()
+mu.f = c(2.6129, 2.1610 ,0.4980, 0.4273 ,0.0333 ,0.0375 ,0.0189 ,0.0473)
 
 test = function(algorithm_file) {
     results = run.algorithm(algorithm_file, options=NULL,fun=list(input=input.f,output=output.f,fun=f))
     library(testthat)
     # Replace following test by something suitable
-    print(results$mu)
-    #test_that("sobol mu",{expect_equal(as.numeric(results$mu),mu.f,tolerance = .0001)})
+    test_that("sobol mu",{expect_equal(as.numeric(results$mu),mu.f,tolerance = .0001)})
 }
 
