@@ -26,7 +26,8 @@ getInitialDesign <- function(algorithm, input, output) {
     set.seed(algorithm$seed)
     algorithm$m <- morris(model = NULL, factors = d, r = algorithm$r, 
         design = list(type = "oat", levels = algorithm$levels))
-    return(algorithm$m$X)
+    names(algorithm$m$X) <- names(input)
+    return(from01(algorithm$m$X,input))
 }
 
 getNextDesign <- function(algorithm, X, Y) {
@@ -39,7 +40,7 @@ displayResults <- function(algorithm, X, Y) {
     
     algorithm$files = "plot.png"
     png(file = algorithm$files, bg = "transparent", height = 600, width = 600)
-    plot(algorithm$m)
+    try(plot(algorithm$m))
     dev.off()
     
     mu = colMeans(algorithm$m$ee)
@@ -60,3 +61,21 @@ displayResults <- function(algorithm, X, Y) {
 }
 
 displayResultsTmp <- function(algorithm, X, Y) {}
+
+from01 = function(X, inp) {
+  nX = names(X)
+  for (i in 1:ncol(X)) {
+    namei = nX[i]
+    X[,i] = X[,i] * (inp[[ namei ]]$max-inp[[ namei ]]$min) + inp[[ namei ]]$min
+  }
+  return(X)
+}
+
+to01 = function(X, inp) {
+  nX = names(X)
+  for (i in 1:ncol(X)) {
+    namei = nX[i]
+    X[,i] = (X[,i] - inp[[ namei ]]$min) / (inp[[ namei ]]$max-inp[[ namei ]]$min)
+  }
+  return(X)
+}
