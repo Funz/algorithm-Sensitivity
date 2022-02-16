@@ -22,9 +22,8 @@ Morris <- function(options) {
 getInitialDesign <- function(algorithm, input, output) {
     algorithm$input <- input
     algorithm$output <- output
-    d = length(input)
     set.seed(algorithm$seed)
-    algorithm$m <- morris(model = NULL, factors = d, r = algorithm$r, 
+    algorithm$m <- morris(model = NULL, factors = names(input), r = algorithm$r, 
         design = list(type = "oat", levels = algorithm$levels))
     names(algorithm$m$X) <- names(input)
     return(from01(algorithm$m$X,input))
