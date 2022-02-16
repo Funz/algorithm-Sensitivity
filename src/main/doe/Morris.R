@@ -2,7 +2,7 @@
 #help: Morris's Elementary Effects Screening Method
 #type: sensitivity
 #authors: Gilles Pujol, with contributions from Frank Weber (2016)
-#references: M. D. Morris, 1991, Factorial sampling plans for preliminary computational experiments, Technometrics, 33, 161–174.
+#references: M. D. Morris, 1991, Factorial sampling plans for preliminary computational experiments, Technometrics, 33, 161-174.
 #require: sensitivity; xtable; jsonlite
 #options: r='10';levels='4';seed='1'
 #options.help: r=integer giving the number of repetitions of the design; levels=integer specifying the number of levels of the design; seed=random seed
