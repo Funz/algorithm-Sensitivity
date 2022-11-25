@@ -9,9 +9,9 @@ f <- function(X) {
   a <- c(0, 1, 4.5, 9, 99, 99, 99, 99)
   y <- 1
   for (j in 1:8) {
-    y <- y * (abs(4 * X[, j] - 2) + a[j]) / (1 + a[j])
+    y <- y * (abs(4 * X[j] - 2) + a[j]) / (1 + a[j])
   }
-  matrix(y,nrow=nrow(X))
+  y
 }
 
 input.f = list(
